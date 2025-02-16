@@ -1,0 +1,121 @@
+2025-02-16 17:32:51,944 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:32:52,070 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:32:52.070674+00:00) is later than the renewal time (2025-02-16 08:32:51.944698+00:00)
+2025-02-16 17:32:52,071 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:32:52,076 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694772, 'exp': 1739698312}
+2025-02-16 17:32:59,740 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:32:59,862 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:32:59.862855+00:00) is later than the renewal time (2025-02-16 08:32:59.740546+00:00)
+2025-02-16 17:32:59,863 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:32:59,867 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694779, 'exp': 1739698319}
+2025-02-16 17:32:59,870 - __main__ - INFO - Making API call with query: What is a positive feedback call?What is a positive feedback call?
+2025-02-16 17:32:59,870 - __main__ - INFO - Sending API request
+2025-02-16 17:32:59,874 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mkb83196.us-east-1.snowflakecomputing.com:443
+2025-02-16 17:33:01,498 - urllib3.connectionpool - DEBUG - https://mkb83196.us-east-1.snowflakecomputing.com:443 "POST /api/v2/cortex/agent:run HTTP/1.1" 404 None
+2025-02-16 17:33:01,499 - __main__ - ERROR - Error response: 404 - {"code":"399502","message":"The Cortex Search Service does not exist or access is not authorized for the current role. If you are using JWT authentication, the role will be the \"DEFAULT_ROLE\" of the current user: sales_intelligence.data.sales_conversation_search","request_id":"f0c8e6de-7abb-471b-acd4-e1535548c867","error_code":"399502"}
+2025-02-16 17:33:01,500 - __main__ - INFO - Processing SSE response
+2025-02-16 17:33:01,501 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?What is a positive feedback call?'}
+2025-02-16 17:33:03,306 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:33:03,429 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:33:03.429391+00:00) is later than the renewal time (2025-02-16 08:33:03.307098+00:00)
+2025-02-16 17:33:03,429 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:33:03,433 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694783, 'exp': 1739698323}
+2025-02-16 17:33:03,436 - __main__ - INFO - Making API call with query: What is a positive feedback call?
+2025-02-16 17:33:03,436 - __main__ - INFO - Sending API request
+2025-02-16 17:33:03,438 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mkb83196.us-east-1.snowflakecomputing.com:443
+2025-02-16 17:33:04,182 - urllib3.connectionpool - DEBUG - https://mkb83196.us-east-1.snowflakecomputing.com:443 "POST /api/v2/cortex/agent:run HTTP/1.1" 404 None
+2025-02-16 17:33:04,183 - __main__ - ERROR - Error response: 404 - {"code":"399502","message":"The Cortex Search Service does not exist or access is not authorized for the current role. If you are using JWT authentication, the role will be the \"DEFAULT_ROLE\" of the current user: sales_intelligence.data.sales_conversation_search","request_id":"f6e68484-0025-4f1a-828f-fbd20acdee5d","error_code":"399502"}
+2025-02-16 17:33:04,185 - __main__ - INFO - Processing SSE response
+2025-02-16 17:33:04,185 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?What is a positive feedback call?'}
+2025-02-16 17:33:04,187 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?'}
+2025-02-16 17:33:49,498 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:33:49,617 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:33:49.617969+00:00) is later than the renewal time (2025-02-16 08:33:49.499300+00:00)
+2025-02-16 17:33:49,619 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:33:49,623 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694829, 'exp': 1739698369}
+2025-02-16 17:33:56,955 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:33:57,080 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:33:57.080342+00:00) is later than the renewal time (2025-02-16 08:33:56.955723+00:00)
+2025-02-16 17:33:57,080 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:33:57,085 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694837, 'exp': 1739698377}
+2025-02-16 17:33:57,087 - __main__ - INFO - Making API call with query: What is a positive feedback call?
+2025-02-16 17:33:57,087 - __main__ - INFO - Sending API request
+2025-02-16 17:33:57,090 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mkb83196.us-east-1.snowflakecomputing.com:443
+2025-02-16 17:33:58,059 - urllib3.connectionpool - DEBUG - https://mkb83196.us-east-1.snowflakecomputing.com:443 "POST /api/v2/cortex/agent:run HTTP/1.1" 404 None
+2025-02-16 17:33:58,060 - __main__ - ERROR - Error response: 404 - {"code":"399502","message":"The Cortex Search Service does not exist or access is not authorized for the current role. If you are using JWT authentication, the role will be the \"DEFAULT_ROLE\" of the current user: sales_intelligence.data.sales_conversation_search","request_id":"70696c9a-7885-4137-a44c-07efe171c7c2","error_code":"399502"}
+2025-02-16 17:33:58,060 - __main__ - INFO - Processing SSE response
+2025-02-16 17:33:58,061 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?'}
+2025-02-16 17:33:59,906 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:34:00,029 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:34:00.029048+00:00) is later than the renewal time (2025-02-16 08:33:59.906828+00:00)
+2025-02-16 17:34:00,029 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:34:00,033 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694840, 'exp': 1739698380}
+2025-02-16 17:34:00,035 - __main__ - INFO - Making API call with query: What is a positive feedback call?
+2025-02-16 17:34:00,035 - __main__ - INFO - Sending API request
+2025-02-16 17:34:00,036 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mkb83196.us-east-1.snowflakecomputing.com:443
+2025-02-16 17:34:00,608 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:34:00,730 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:34:00.730647+00:00) is later than the renewal time (2025-02-16 08:34:00.609093+00:00)
+2025-02-16 17:34:00,730 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:34:00,734 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694840, 'exp': 1739698380}
+2025-02-16 17:34:00,737 - __main__ - INFO - Making API call with query: What is a positive feedback call?
+2025-02-16 17:34:00,737 - __main__ - INFO - Sending API request
+2025-02-16 17:34:00,739 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mkb83196.us-east-1.snowflakecomputing.com:443
+2025-02-16 17:34:00,745 - urllib3.connectionpool - DEBUG - https://mkb83196.us-east-1.snowflakecomputing.com:443 "POST /api/v2/cortex/agent:run HTTP/1.1" 404 None
+2025-02-16 17:34:00,746 - __main__ - ERROR - Error response: 404 - {"code":"399502","message":"The Cortex Search Service does not exist or access is not authorized for the current role. If you are using JWT authentication, the role will be the \"DEFAULT_ROLE\" of the current user: sales_intelligence.data.sales_conversation_search","request_id":"7029f95f-20c7-44c7-ba28-f632a58f5d70","error_code":"399502"}
+2025-02-16 17:34:00,788 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:34:00,900 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:34:00.900739+00:00) is later than the renewal time (2025-02-16 08:34:00.789049+00:00)
+2025-02-16 17:34:00,901 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:34:00,905 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694840, 'exp': 1739698380}
+2025-02-16 17:34:00,906 - __main__ - INFO - Making API call with query: What is a positive feedback call?
+2025-02-16 17:34:00,907 - __main__ - INFO - Sending API request
+2025-02-16 17:34:00,908 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mkb83196.us-east-1.snowflakecomputing.com:443
+2025-02-16 17:34:00,941 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:34:01,053 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:34:01.053947+00:00) is later than the renewal time (2025-02-16 08:34:00.941703+00:00)
+2025-02-16 17:34:01,054 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:34:01,058 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694841, 'exp': 1739698381}
+2025-02-16 17:34:01,060 - __main__ - INFO - Making API call with query: What is a positive feedback call?
+2025-02-16 17:34:01,060 - __main__ - INFO - Sending API request
+2025-02-16 17:34:01,061 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mkb83196.us-east-1.snowflakecomputing.com:443
+2025-02-16 17:34:01,121 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:34:01,232 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:34:01.232075+00:00) is later than the renewal time (2025-02-16 08:34:01.121981+00:00)
+2025-02-16 17:34:01,232 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:34:01,236 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694841, 'exp': 1739698381}
+2025-02-16 17:34:01,240 - __main__ - INFO - Making API call with query: What is a positive feedback call?
+2025-02-16 17:34:01,240 - __main__ - INFO - Sending API request
+2025-02-16 17:34:01,241 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mkb83196.us-east-1.snowflakecomputing.com:443
+2025-02-16 17:34:01,553 - urllib3.connectionpool - DEBUG - https://mkb83196.us-east-1.snowflakecomputing.com:443 "POST /api/v2/cortex/agent:run HTTP/1.1" 404 None
+2025-02-16 17:34:01,554 - __main__ - ERROR - Error response: 404 - {"code":"399502","message":"The Cortex Search Service does not exist or access is not authorized for the current role. If you are using JWT authentication, the role will be the \"DEFAULT_ROLE\" of the current user: sales_intelligence.data.sales_conversation_search","request_id":"17a7d869-09a5-40a4-860d-4e506ad00cfa","error_code":"399502"}
+2025-02-16 17:34:01,678 - urllib3.connectionpool - DEBUG - https://mkb83196.us-east-1.snowflakecomputing.com:443 "POST /api/v2/cortex/agent:run HTTP/1.1" 404 None
+2025-02-16 17:34:01,678 - __main__ - ERROR - Error response: 404 - {"code":"399502","message":"The Cortex Search Service does not exist or access is not authorized for the current role. If you are using JWT authentication, the role will be the \"DEFAULT_ROLE\" of the current user: sales_intelligence.data.sales_conversation_search","request_id":"f7aefa27-2693-445b-8993-c91e000414b3","error_code":"399502"}
+2025-02-16 17:34:01,747 - urllib3.connectionpool - DEBUG - https://mkb83196.us-east-1.snowflakecomputing.com:443 "POST /api/v2/cortex/agent:run HTTP/1.1" 404 None
+2025-02-16 17:34:01,748 - __main__ - ERROR - Error response: 404 - {"code":"399502","message":"The Cortex Search Service does not exist or access is not authorized for the current role. If you are using JWT authentication, the role will be the \"DEFAULT_ROLE\" of the current user: sales_intelligence.data.sales_conversation_search","request_id":"cc6a2ba6-12c0-422f-9c41-c24892b397f1","error_code":"399502"}
+2025-02-16 17:34:01,930 - urllib3.connectionpool - DEBUG - https://mkb83196.us-east-1.snowflakecomputing.com:443 "POST /api/v2/cortex/agent:run HTTP/1.1" 404 None
+2025-02-16 17:34:01,932 - __main__ - ERROR - Error response: 404 - {"code":"399502","message":"The Cortex Search Service does not exist or access is not authorized for the current role. If you are using JWT authentication, the role will be the \"DEFAULT_ROLE\" of the current user: sales_intelligence.data.sales_conversation_search","request_id":"dc281465-d3f3-452f-8a59-018b38455f1e","error_code":"399502"}
+2025-02-16 17:34:01,933 - __main__ - INFO - Processing SSE response
+2025-02-16 17:34:01,934 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?'}
+2025-02-16 17:34:01,936 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?'}
+2025-02-16 17:34:01,937 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?'}
+2025-02-16 17:34:01,939 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?'}
+2025-02-16 17:34:01,942 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?'}
+2025-02-16 17:34:01,943 - __main__ - INFO - Message: {'role': 'user', 'content': 'What is a positive feedback call?'}
+2025-02-16 17:36:34,867 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:36:34,987 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:36:34.987038+00:00) is later than the renewal time (2025-02-16 08:36:34.867535+00:00)
+2025-02-16 17:36:34,987 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:36:34,993 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694994, 'exp': 1739698534}
+2025-02-16 17:36:39,095 - generate_jwt - INFO - Creating JWTGenerator with arguments
+            account : mkb83196.us-east-1, user : d.harato@datumstudio.jp, lifetime : 0:59:00, renewal_delay : 0:54:00
+2025-02-16 17:36:39,209 - generate_jwt - INFO - Generating a new token because the present time (2025-02-16 08:36:39.209871+00:00) is later than the renewal time (2025-02-16 08:36:39.095902+00:00)
+2025-02-16 17:36:39,210 - generate_jwt - INFO - Public key fingerprint is SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=
+2025-02-16 17:36:39,214 - generate_jwt - INFO - Generated a JWT with the following payload: {'iss': 'MKB83196.D.HARATO@DATUMSTUDIO.JP.SHA256:2Jclr5cNE8agXKfOEbJVQK4d4CslLeVUgnCKCLFYDgg=', 'sub': 'MKB83196.D.HARATO@DATUMSTUDIO.JP', 'iat': 1739694999, 'exp': 1739698539}
+2025-02-16 17:36:39,215 - __main__ - INFO - Making API call with query: hello
+2025-02-16 17:36:39,215 - __main__ - INFO - Sending API request
+2025-02-16 17:36:39,219 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mkb83196.us-east-1.snowflakecomputing.com:443
+2025-02-16 17:36:40,548 - urllib3.connectionpool - DEBUG - https://mkb83196.us-east-1.snowflakecomputing.com:443 "POST /api/v2/cortex/agent:run HTTP/1.1" 404 None
+2025-02-16 17:36:40,549 - __main__ - ERROR - Error response: 404 - {"code":"399502","message":"The Cortex Search Service does not exist or access is not authorized for the current role. If you are using JWT authentication, the role will be the \"DEFAULT_ROLE\" of the current user: sales_intelligence.data.sales_conversation_search","request_id":"32da0961-e1fd-40d3-bc32-f14d2e6ddb2d","error_code":"399502"}
+2025-02-16 17:36:40,552 - __main__ - INFO - Processing SSE response
+2025-02-16 17:36:40,552 - __main__ - INFO - Message: {'role': 'user', 'content': 'hello'}

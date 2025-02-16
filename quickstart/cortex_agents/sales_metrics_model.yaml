@@ -1,0 +1,122 @@
+name: sales_metrics
+description: sales metrics and analytics model
+tables:
+  - name: sales_metrics
+    base_table:
+      database: sales_intelligence
+      schema: data
+      table: sales_metrics
+    dimensions:
+      - name: deal_id
+        expr: deal_id3
+        data_type: varchar(16777216)
+        sample_values:
+          - deal001
+          - deal002
+          - deal003
+        description: unique identifier for a sales deal, used to track and analyze individual sales agreements.
+        synonyms:
+          - transaction id
+          - agreement id
+          - contract id
+          - sale id
+          - order id
+          - deal number
+      - name: customer_name
+        expr: customer_name
+        data_type: varchar(16777216)
+        sample_values:
+          - techcorp inc
+          - smallbiz solutions
+          - securebank ltd
+        description: the name of the customer associated with a particular sale or transaction.
+        synonyms:
+          - client
+          - buyer
+          - purchaser
+          - account_name
+          - account_holder
+      - name: sales_stage
+        expr: sales_stage
+        data_type: varchar(16777216)
+        sample_values:
+          - closed
+          - lost
+          - pending
+        description: the current stage of a sales opportunity, indicating whether it has been successfully closed, lost to a competitor, or is still pending a decision.
+        synonyms:
+          - deal_status
+          - sales_phase
+          - opportunity_state
+          - pipeline_position
+      - name: win_status
+        expr: win_status
+        data_type: boolean
+        sample_values:
+          - 'true'
+          - 'false'
+        description: indicates whether a sale was won (true) or lost (false).
+        synonyms:
+          - won
+          - success
+          - closed
+          - converted
+          - achieved
+          - accomplished
+      - name: sales_rep
+        expr: sales_rep
+        data_type: varchar(16777216)
+        sample_values:
+          - sarah johnson
+          - mike chen
+          - rachel torres
+        description: the sales representative responsible for the sale.
+        synonyms:
+          - salesperson
+          - account_manager
+          - representative
+          - agent
+      - name: product_line
+        expr: product_line
+        data_type: varchar(16777216)
+        sample_values:
+          - enterprise suite
+          - basic package
+          - premium security
+        description: this column categorizes sales by the type of product or service offered, distinguishing between the comprehensive enterprise suite, the standard basic package, and the advanced premium security package.
+        synonyms:
+          - product family
+          - item category
+          - merchandise type
+          - goods classification
+          - commodity group
+    time_dimensions:
+      - name: close_date
+        expr: close_date
+        data_type: date
+        sample_values:
+          - '2024-02-15'
+          - '2024-02-01'
+          - '2024-01-30'
+        description: the date on which a sale was closed or finalized.
+        synonyms:
+          - completion date
+          - sale date
+          - deal close date
+          - transaction date
+          - sale completion date
+    measures:
+      - name: deal_value
+        expr: deal_value
+        data_type: float
+        sample_values:
+          - '75000'
+          - '25000'
+          - '150000'
+        description: the total monetary value of a sales deal or transaction.
+        synonyms:
+          - revenue
+          - sale_amount
+          - transaction_value
+          - deal_amount
+          - sale_price
