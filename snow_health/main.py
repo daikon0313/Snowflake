@@ -24,24 +24,36 @@ def load_sql(file_path):
     with open(file_path, "r") as file:
         return file.read()
 
-# クエリ読み込み
-unused_tables_query = load_sql("sql/unused_tables.sql")
-unused_views_query = load_sql("sql/unused_views.sql")
-
+# Streamlit UI
 st.title("未使用テーブル・ビューの特定")
+
+# 日数選択（30, 90, 180, 360日）
+days_option = st.radio(
+    "未使用の期間（日数）を選択してください",
+    [30, 90, 180, 360],
+    index=0
+)
+
+st.write(f"現在の設定: **{days_option}日** 未使用のテーブル・ビューを表示")
+
+# クエリ読み込み & 置換
+unused_tables_query = load_sql("sql/unused_tables.sql").replace("current_date - 30", f"current_date - {days_option}")
+unused_views_query = load_sql("sql/unused_views.sql").replace("current_date - 30", f"current_date - {days_option}")
+
+# 未使用テーブルの取得
+unused_tables_df = session.sql(unused_tables_query).collect()
+unused_tables_count = len(unused_tables_df)
+
+# 未使用ビューの取得
+unused_views_df = session.sql(unused_views_query).collect()
+unused_views_count = len(unused_views_df)
 
 # 未使用テーブル
 st.subheader("使用されていないテーブル")
-st.code(unused_tables_query, language="sql")
-
-st.write("クエリを実行中...")
-unused_tables_df = session.sql(unused_tables_query).collect()
+st.markdown(f"**該当オブジェクト数: {unused_tables_count} 件**")
 st.dataframe(unused_tables_df)
 
 # 未使用ビュー
 st.subheader("使用されていないビュー")
-st.code(unused_views_query, language="sql")
-
-st.write("クエリを実行中...")
-unused_views_df = session.sql(unused_views_query).collect()
+st.markdown(f"**該当オブジェクト数: {unused_views_count} 件**")
 st.dataframe(unused_views_df)
