@@ -1,0 +1,47 @@
+version: 2
+models:
+  - name: notion_mart
+    materialized: view
+    meta:
+      grade: G2
+      status: Preview
+      target_user: developer
+
+    # description: "{{ doc('dbt_profiler__customer') }}"
+    columns:
+      - name: FETCHED_AT
+        data_type: TIMESTAMP_LTZ
+        description: "データが取得された日時"
+      - name: PAGE_ID
+        data_type: VARCHAR
+        description: "ページを一意に識別するID"
+      - name: DURATION_MINUTES
+        data_type: NUMBER
+        description: "処理やイベントの継続時間（分）"
+      - name: STATUS
+        data_type: VARCHAR
+        description: "状態やステータスの情報"
+      - name: PROJECT_TAG
+        data_type: VARCHAR
+        description: "プロジェクトを識別するタグ"
+      - name: WORK_TAG
+        data_type: VARCHAR
+        description: "作業やタスクを識別するタグ"
+      - name: START_TIME
+        data_type: TIMESTAMP_TZ
+        description: "処理または作業の開始時刻"
+      - name: END_TIME
+        data_type: TIMESTAMP_TZ
+        description: "処理または作業の終了時刻"
+      - name: DUE_DATE
+        data_type: DATE
+        description: "期日、または締め切りの日付"
+      - name: NOTION_URL
+        data_type: VARCHAR
+        description: "Notion上のリソースURL"
+      - name: CREATED_TIME
+        data_type: TIMESTAMP_TZ
+        description: "レコードの作成日時"
+      - name: LAST_EDITED_TIME
+        data_type: TIMESTAMP_TZ
+        description: "最終更新日時"
