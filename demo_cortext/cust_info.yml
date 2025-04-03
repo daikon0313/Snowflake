@@ -1,0 +1,49 @@
+name: Customer_History
+tables:
+  - name: cust_hist
+    description: Customer history events capturing join and leave events.
+    base_table:
+      database: d_harato_db
+      schema: harato_sample_cortex_demo
+      table: CUST_HIST
+    primary_key:
+      columns:
+        - CONTRACT_ID
+        - DATE
+    time_dimensions:
+      - name: DATE
+        expr: DATE
+        description: Event date for the customer history record.
+        unique: false
+        data_type: date
+    measures:
+      - name: net_customers
+        expr: JOIN_FLAG - LEAVE_FLAG
+        description: Net change in customer count (join minus leave) for the event date.
+        default_aggregation: sum
+        data_type: number
+    dimensions:
+      - name: CONTRACT_ID
+        expr: CONTRACT_ID
+        data_type: varchar
+      - name: PERSONAL_ID
+        expr: PERSONAL_ID
+        data_type: varchar
+      - name: BRAND
+        expr: BRAND
+        data_type: varchar
+        sample_values:
+          - A
+          - B
+          - C
+      - name: PREFECTURE
+        expr: PREFECTURE
+        data_type: varchar
+      - name: JOIN_FLAG
+        expr: JOIN_FLAG
+        data_type: number
+      - name: LEAVE_FLAG
+        expr: LEAVE_FLAG
+        data_type: number
+
+relationships: []
