@@ -1,3 +1,4 @@
+############################## インポート ##############################
 import streamlit as st
 import json
 import requests
@@ -55,7 +56,7 @@ st.session_state.conn = snowflake.connector.connect(
     role=SNOWFLAKE_ROLE
 )
 
-##################### 
+############################## Cortex Analyst API の呼び出し ##############################
 def send_message(prompt: str) -> dict:
     """Cortex Analyst REST API を呼び出しレスポンスを返す"""
     body = {
@@ -76,6 +77,7 @@ def send_message(prompt: str) -> dict:
     else:
         raise Exception(f"Failed request (id: {req_id}) with status {resp.status_code}: {resp.text}")
 
+############################## 入力・結果 ##############################
 def process_message(prompt: str) -> None:
     """ユーザー入力を表示し、API 呼び出し後の結果を表示"""
     st.session_state.messages.append({"role": "user", "content": [{"type": "text", "text": prompt}]})
@@ -112,7 +114,7 @@ def display_content(content: List[dict], req_id: Optional[str] = None, msg_index
                     # チャート部分は省略し、テーブルのみ表示
                     st.dataframe(df)
 
-# UI の初期化
+##############################　UI ##############################
 st.title("Cortex Analyst Demo App")
 st.markdown(f"Semantic Model: `{FILE_CORTEX}`")
 if "messages" not in st.session_state:
