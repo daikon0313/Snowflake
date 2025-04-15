@@ -1,0 +1,88 @@
+# セマンティックモデルの定義
+name: project_history_model
+description: 社員がどの案件をいつどのように担当したかを記録する履歴データモデル
+
+tables:
+  - name: resource_work_detail
+    description: 社員と案件の担当履歴情報を記録するテーブル
+
+    base_table:
+      database: INTERNAL_KPI_DEV
+      schema: HARATO_TEST_SCHEMA
+      table: RESOURCE_WORK_DETAIL_TABLE_FOR_SEARCH
+
+    dimensions:
+      - name: emp_name
+        synonyms: [ "社員", "社員名", "担当者" ]
+        description: 担当した社員の名前
+        expr: emp_name
+        data_type: STRING
+        unique: false
+        cortex_search_service_name: emp_name_search_service
+
+      - name: opportunity_name
+        synonyms: [ "案件名", "プロジェクト", "プロジェクト名" ]
+        description: 担当した案件の名称
+        expr: opportunity_name
+        data_type: STRING
+        unique: false
+        cortex_search_service_name: opportunity_name_search_service
+
+      - name: opportunity_id
+        synonyms: [ "案件ID", "プロジェクトID", "識別子" ]
+        description: 案件を一意に識別するID
+        expr: opportunity_id
+        data_type: STRING
+        unique: true
+
+      - name: end_client_name
+        synonyms: [ "クライアント", "顧客", "取引先" ]
+        description: 案件の最終クライアント名
+        expr: end_client_name
+        data_type: STRING
+        unique: false
+
+      - name: opportunity_category
+        synonyms: [ "カテゴリ", "種別", "フェーズ" ]
+        description: 案件のカテゴリ（コンサル、要件定義、構築など）
+        expr: opportunity_category
+        data_type: STRING
+        unique: false
+
+    time_dimensions:
+      - name: project_start_date
+        synonyms: [ "開始日", "着手日", "プロジェクト開始" ]
+        description: プロジェクトの開始日
+        expr: project_start_date
+        data_type: DATE
+        unique: false
+
+      - name: project_end_date
+        synonyms: [ "終了日", "完了日", "プロジェクト終了" ]
+        description: プロジェクトの終了日
+        expr: project_end_date
+        data_type: DATE
+        unique: false
+
+    measures:
+      - name: project_duration_days
+        synonyms: [ "実施期間", "プロジェクト期間", "案件期間", "日数" ]
+        description: プロジェクトの開始日と終了日の差（日数）
+        expr: DATEDIFF('day', project_start_date, project_end_date)
+        data_type: NUMBER
+        default_aggregation: avg
+
+    filters:
+      - name: active_projects
+        synonyms: [ "現在の案件", "進行中の案件", "今やってるプロジェクト" ]
+        description: 現在進行中のプロジェクト
+        expr: CURRENT_DATE BETWEEN project_start_date AND project_end_date
+
+verified_queries:
+  - name: 進行中のプロジェクト一覧
+    question: 現在進行中の案件を教えてください
+    verified_by: 原戸大輔
+    sql: >
+      SELECT emp_name, opportunity_name, project_start_date, project_end_date
+      FROM INTERNAL_KPI_DEV.HARATO_TEST_SCHEMA.RESOURCE_WORK_DETAIL_TABLE_FOR_SEARCH
+      WHERE CURRENT_DATE BETWEEN project_start_date AND project_end_date;
