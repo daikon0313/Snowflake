@@ -1,0 +1,262 @@
+name: Customer_Claim_Semantic_Model
+description: ''
+tables:
+  - name: CLAIMS
+    base_table:
+      database: INSURANCEDB
+      schema: DATA
+      table: CLAIMS
+    dimensions:
+      - name: CLAIM_NUMBER
+        expr: CLAIM_NUMBER
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - CLM-367168
+          - CLM-594826
+          - CLM-802822
+        description: Unique identifier assigned to each claim submitted by a customer or provider to request payment or reimbursement for medical services or products.
+        synonyms:
+          - claim_id
+          - claim_reference
+          - policy_number
+          - claim_identifier
+          - invoice_number
+      - name: CLIENT_ID
+        expr: CLIENT_ID
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - CUST0006
+          - CUST0008
+          - CUST0060
+        description: Unique identifier for the client or customer who submitted the claim.
+        synonyms:
+          - customer_id
+          - policy_holder_id
+          - client_identifier
+          - insured_id
+          - account_id
+      - name: CLAIM_TYPE
+        expr: CLAIM_TYPE
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - Health
+          - Life
+          - Home
+        description: The type of claim being made
+        synonyms:
+          - claim_category
+          - claim_class
+          - type_of_claim
+          - claim_description
+          - claim_code
+      - name: STATUS
+        expr: STATUS
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - Approved
+          - Denied
+          - Under Review
+          - Pending
+        description: The current stage of the claim in the claims processing workflow
+        synonyms:
+          - condition
+          - state
+          - position
+          - situation
+          - phase
+    time_dimensions:
+      - name: DATE_FILED
+        expr: DATE_FILED
+        data_type: DATE
+        sample_values:
+          - '2019-10-22'
+          - '2021-04-18'
+          - '2016-06-17'
+        description: The date on which a claim was filed with the insurance company.
+        synonyms:
+          - file_date
+          - submission_date
+          - claim_date
+          - date_submitted
+          - filing_date
+    measures:
+      - name: CLAIM_AMOUNT
+        expr: CLAIM_AMOUNT
+        data_type: FLOAT
+        sample_values:
+          - '20022.58'
+          - '9220.62'
+          - '37048.62'
+        description: The total amount of a claim submitted by a customer or provider for reimbursement or payment.
+        synonyms:
+          - claim_value
+          - amount_claimed
+          - claim_cost
+          - insurance_claim_amount
+          - payment_amount
+          - billed_amount
+    primary_key:
+      columns:
+        - CLIENT_ID
+  - name: CUSTOMERS
+    base_table:
+      database: INSURANCEDB
+      schema: DATA
+      table: CUSTOMERS
+    dimensions:
+      - name: DRIVERS_LICENSE
+        expr: DRIVERS_LICENSE
+        data_type: BOOLEAN
+        sample_values:
+          - 'TRUE'
+          - 'FALSE'
+        description: Indicates whether the customer has provided a valid driver's license as a form of identification.
+        synonyms:
+          - driver_license
+          - driving_license
+          - license_to_drive
+          - driver_permit
+          - driving_permit
+      - name: CITY
+        expr: CITY
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - Austin
+          - Miami
+          - Naperville
+        description: The city where the customer is located.
+        synonyms:
+          - town
+          - municipality
+          - urban_area
+          - metropolis
+          - locale
+          - settlement
+          - urban_center
+      - name: CLIENT_ID
+        expr: CLIENT_ID
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - CUST0001
+          - CUST0002
+          - CUST0057
+        description: Unique identifier assigned to each customer in the system.
+        synonyms:
+          - customer_id
+          - client_identifier
+          - user_id
+          - account_id
+          - customer_identifier
+          - id_number
+          - client_number
+          - account_number
+      - name: NAME
+        expr: NAME
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - Customer 1
+          - Customer 2
+          - Customer 3
+        description: The name of the customer
+        synonyms:
+          - full_name
+          - client_name
+          - customer_name
+          - username
+          - title
+      - name: STATE
+        expr: STATE
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - TX
+          - FL
+          - IL
+        description: State of residence of the customer
+        synonyms:
+          - province
+          - region
+          - territory
+          - area
+          - location
+          - jurisdiction
+          - zone
+      - name: ZIP_CODE
+        expr: ZIP_CODE
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - '40700'
+          - '51796'
+          - '25621'
+        description: Postal code of the customer's address
+        synonyms:
+          - postal_code
+          - postcode
+          - zip
+          - zipcode
+          - postal
+          - area_code
+      - name: DRIVER_LICENSE_STATE
+        expr: DRIVER_LICENSE_STATE
+        data_type: VARCHAR(16777216)
+          - TX
+          - FL
+          - IL
+        description: state that issued driver's license to the customer
+        synonyms:
+          - dl state          
+    time_dimensions:
+      - name: START_DATE
+        expr: START_DATE
+        data_type: DATE
+        sample_values:
+          - '2021-07-02'
+          - '2020-10-27'
+          - '2020-03-14'
+        description: Date when the customer's relationship with the company started.
+        synonyms:
+          - effective_date
+          - commencement_date
+          - initiation_date
+          - begin_date
+          - inception_date
+    measures:
+      - name: TOTAL_CLAIMED
+        expr: TOTAL_CLAIMED
+        data_type: FLOAT
+        sample_values:
+          - '6775.64'
+          - '37668.72'
+          - '35694.99'
+        description: Total amount claimed by customers.
+        synonyms:
+          - total_amount_claimed
+          - claimed_amount
+          - total_claim_value
+          - claimed_value
+          - total_claims_amount
+    primary_key:
+      columns:
+        - CLIENT_ID
+relationships:
+  - join_type: inner
+    relationship_type: one_to_one
+    left_table: CUSTOMERS
+    relationship_columns:
+      - left_column: CLIENT_ID
+        right_column: CLIENT_ID
+    right_table: CLAIMS
+    name: Client_ID
+verified_queries:
+# Verified Query (1 of n)
+- name: query1
+  question: Is the average amount per repair invoice going up over the last 6 months? Are there certain times of the year the repair costs are higher?
+  sql: WITH __claims AS (   SELECT     date_filed,     claim_amount   FROM insurancedb.data.claims ), monthly_avg AS (   SELECT     TO_CHAR(DATE_TRUNC('MONTH', c.date_filed), 'YYYY-MM') AS month_str,     AVG(c.claim_amount) AS avg_claim_amount   FROM __claims AS c   WHERE     c.date_filed >= DATEADD(MONTH, -6, CURRENT_DATE)   GROUP BY     DATE_TRUNC('MONTH', c.date_filed) ), seasonal_pattern AS (   SELECT     TO_CHAR(DATE_PART('month', c.date_filed), '00') AS month_str,     AVG(c.claim_amount) AS avg_claim_amount   FROM __claims AS c   GROUP BY     DATE_PART('month', c.date_filed) ) SELECT   'Last 6 Months' AS analysis_type,   month_str,   avg_claim_amount FROM monthly_avg UNION ALL SELECT   'Seasonal Pattern' AS analysis_type,   month_str,   avg_claim_amount FROM seasonal_pattern ORDER BY   analysis_type,   month_str DESC NULLS LAST;
+- name: query2
+  question: How many policy holders with drivers licenses issued in a different state?
+  sql: WITH __customers AS (   SELECT     client_id,     state,     driver_license_state   FROM insurancedb.data.customers ) SELECT   COUNT(DISTINCT client_id) AS customer_count FROM __customers WHERE   state <> driver_license_state;
+- name: query3
+  question: Are there certain types of repairs that are more frequent?
+  sql: WITH __claims AS (   SELECT     claim_type,     date_filed   FROM insurancedb.data.claims ), claim_counts AS (   SELECT     c.claim_type,     MIN(c.date_filed) AS start_date,     MAX(c.date_filed) AS end_date,     COUNT(*) AS claim_count   FROM __claims AS c   GROUP BY     c.claim_type ) SELECT   claim_type,   start_date,   end_date,   claim_count FROM claim_counts ORDER BY   claim_count DESC NULLS LAST;
+- name: query4
+  question: Create a chart from repair invoices by zipcodes for Austin.  Are there certain areas with higher repair charges?
+  sql: WITH __customers AS (   SELECT     city,     client_id,     zip_code   FROM insurancedb.data.customers ), __claims AS (   SELECT     client_id,     date_filed,     claim_amount   FROM insurancedb.data.claims ), austin_claims AS (   SELECT     cu.zip_code,     MIN(cl.date_filed) AS start_date,     MAX(cl.date_filed) AS end_date,     SUM(cl.claim_amount) AS total_repair_charges   FROM __customers AS cu   INNER JOIN __claims AS cl     ON cu.client_id = cl.client_id   WHERE     cu.city = 'Austin'   GROUP BY     cu.zip_code ) SELECT   zip_code,   start_date,   end_date,   total_repair_charges FROM austin_claims ORDER BY   total_repair_charges DESC NULLS LAST ;
